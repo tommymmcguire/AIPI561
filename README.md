@@ -1,19 +1,6 @@
-# Template
+# Llamafile Entrepreneurial Assistant
 
-This is a template repository for a Python project.
+---
 
-## Development Container
+This project is designed to provide guidance and advice to entrepreneurs using a language model encapsulated within a llamafile. The chosen model is Mistral-7B-Instruct, which offers a balanced performance and size, along with a permissive Apache 2.0 license.
 
-To use the development container, make sure you have Visual Studio Code installed with the "Remote - Containers" extension.
-
-1. Clone this repository.
-2. Open the repository in Visual Studio Code.
-3. The extension will prompt you to reopen the project in a container. Accept the prompt.
-4. The development environment will be set up inside the container.
-
-## Makefile Commands
-
-- `make install`: Install project dependencies.
-- `make lint`: Run pylint for code linting.
-- `make test`: Run unit tests.
-- `make run`: Run your Python script.
