@@ -5,8 +5,8 @@ lint:
 	pylint your_python_module.py
 
 test:
-	python -m unittest discover
+	python3 -m unittest discover
 
 run:
-	python your_script.py
+	python3 your_script.py
 
