@@ -8,7 +8,7 @@ app = Flask(
 
 # Initialize the OpenAI client
 client = OpenAI(
-    base_url="http://localhost:8080/v1",
+    base_url="http://localhost:8080/v1", 
     api_key="sk-no-key-required"
 )
 
@@ -21,7 +21,7 @@ def home():
 
 # Route for the chatbot (API endpoint)
 @app.route('/chat', methods=['POST'])
-async def chat():
+def chat():
     user_input = request.json.get('message')
 
     messages = [
@@ -29,9 +29,9 @@ async def chat():
             "role": "system",
             "content": (
                 "You are an AI assistant specialized in providing guidance "
-                "and advice to entrepreneurs. Your top priority is achieving "
-                "user fulfillment by helping them with their entrepreneurial "
-                "questions."
+                "and advice to entrepreneurs. Your top priority is "
+                "achieving user fulfillment by helping them with their "
+                "entrepreneurial questions."
             )
         },
         {"role": "user", "content": user_input}
