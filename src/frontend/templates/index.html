@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Chatbot Interface</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Entrepreneurial Chatbot Assistant</h1>
+        <div class="chat-container mt-4">
+            <div id="chat-box" class="border rounded p-3 mb-3"></div>
+            <div class="input-group">
+                <input type="text" id="user-input" class="form-control" placeholder="Type your message here..." aria-label="User message">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function sendMessage() {
+            let userInput = document.getElementById('user-input').value;
+            if (userInput.trim() === '') return;
+
+            let chatBox = document.getElementById('chat-box');
+            let userMessage = document.createElement('div');
+            userMessage.className = 'user-message mb-2';
+            userMessage.innerHTML = `<strong>You:</strong> ${userInput} <span class="timestamp">${new Date().toLocaleTimeString()}</span>`;
+            chatBox.appendChild(userMessage);
+
+            let typingIndicator = document.createElement('div');
+            typingIndicator.className = 'typing-indicator mb-2';
+            typingIndicator.innerHTML = '<em>Bot is typing...</em>';
+            chatBox.appendChild(typingIndicator);
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: userInput }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatBox.removeChild(typingIndicator);
+                let botMessage = document.createElement('div');
+                botMessage.className = 'bot-message mb-2';
+                botMessage.innerHTML = `<strong>Bot:</strong> ${data.response.replace(/\n/g, '<br>')} <span class="timestamp">${new Date().toLocaleTimeString()}</span>`;
+                chatBox.appendChild(botMessage);
+                chatBox.scrollTop = chatBox.scrollHeight;
+                document.getElementById('user-input').value = '';
+            })
+            .catch(error => {
+                chatBox.removeChild(typingIndicator);
+                let errorMessage = document.createElement('div');
+                errorMessage.className = 'error-message mb-2';
+                errorMessage.innerHTML = `<strong>Error:</strong> Failed to get response. Please try again later.`;
+                chatBox.appendChild(errorMessage);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            });
+        }
+    </script>
+</body>
+</html>
