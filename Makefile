@@ -1,12 +1,25 @@
+# Default target
+.PHONY: all
+all: install lint test run
+
+# Install Python dependencies
+.PHONY: install
 install:
+	python -m pip install --upgrade pip
 	pip install -r requirements.txt
 
+# Lint Python files
+.PHONY: lint
 lint:
-	pylint your_python_module.py
+	pip install flake8
+	flake8 src
 
+# Run tests
+.PHONY: test
 test:
-	python3 -m unittest discover
+	python -m unittest discover src/tests
 
+# Run the application
+.PHONY: run
 run:
-	python3 your_script.py
-
+	python src/app.py

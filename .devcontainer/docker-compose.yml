@@ -1,6 +1,11 @@
-version: '3'
+version: '3.8'
+
 services:
   app:
-    build: .
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
     ports:
-      - "5001:5000"
+      - "5001:5001"
+    environment:
+      - OPENAI_API_KEY=sk-no-key-required
