@@ -1,6 +1,7 @@
 import os
 import unittest
-from src.app import app
+from app import app
+
 
 class AppTestCase(unittest.TestCase):
     def setUp(self):
@@ -20,6 +21,7 @@ class AppTestCase(unittest.TestCase):
         print("Response:", response.get_json())
         self.assertEqual(response.status_code, 200)
         self.assertIn('response', response.get_json())
+
 
 if __name__ == '__main__':
     unittest.main()
