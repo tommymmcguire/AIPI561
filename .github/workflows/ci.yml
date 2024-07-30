@@ -56,6 +56,5 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-        docker build -t my-chatbot .
-        docker tag my-chatbot:latest my-chatbot:${{ github.sha }}
-        docker push my-chatbot:${{ github.sha }}
+        docker build -t my-dockerhub-username/my-chatbot:latest .
+        docker push my-dockerhub-username/my-chatbot:latest
