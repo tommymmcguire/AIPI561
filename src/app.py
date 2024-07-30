@@ -19,6 +19,12 @@ def home():
     return render_template("index.html")
 
 
+# Health check route
+@app.route('/health', methods=['GET'])
+def health():
+    return jsonify({"status": "healthy"}), 200
+
+
 # Route for the chatbot (API endpoint)
 @app.route('/chat', methods=['POST'])
 def chat():

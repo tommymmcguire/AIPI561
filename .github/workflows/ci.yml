@@ -9,13 +9,8 @@ on:
       - main
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
-
-    services:
-      docker:
-        image: docker:19.03.12
-        options: --privileged
 
     steps:
     - name: Checkout code
@@ -36,23 +31,31 @@ jobs:
         pip install flake8
         flake8 src
 
-    - name: Build Docker images
+    - name: Run health check tests
       run: |
-        docker-compose build
+        python -m unittest discover src/tests
 
-    - name: Run tests
-      run: |
-        docker-compose up 
-        sleep 10  # Ensure services are up and running
-        docker-compose exec -T app python -m unittest discover src/tests
-        docker-compose down
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+
+    services:
+      docker:
+        image: docker:19.03.12
+        options: --privileged
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
 
     - name: Build Docker image
       run: |
         docker build -t my-chatbot .
 
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
     - name: Push Docker image
       run: |
-        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
         docker tag my-chatbot:latest my-chatbot:${{ github.sha }}
         docker push my-chatbot:${{ github.sha }}
