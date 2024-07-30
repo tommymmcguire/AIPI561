@@ -36,9 +36,16 @@ jobs:
         pip install flake8
         flake8 src
 
+    - name: Build Docker images
+      run: |
+        docker-compose build
+
     - name: Run tests
       run: |
-        python -m unittest discover src/tests
+        docker-compose up -d
+        sleep 10  # Ensure services are up and running
+        docker-compose exec app python -m unittest discover src/tests
+        docker-compose down
 
     - name: Build Docker image
       run: |

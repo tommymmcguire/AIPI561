@@ -8,7 +8,7 @@ app = Flask(
 
 # Initialize the OpenAI client
 client = OpenAI(
-    base_url="http://host.docker.internal:8080/v1",
+    base_url="http://localhost:8080/v1",
     api_key="sk-no-key-required"
 )
 

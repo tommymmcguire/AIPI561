@@ -2,16 +2,23 @@
 FROM python:3.9-slim
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /workspace
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+# Copy the current directory contents into the container at /workspace
+COPY . /workspace
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Make port 5001 available to the world outside this container
+# Install additional development tools
+RUN pip install flake8 pytest
+
+# Expose port 5001 for the Flask app
 EXPOSE 5001
 
-# Run app.py when the container launches
+# Set up the environment
+ENV PYTHONUNBUFFERED 1
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Run the Flask app by default
 CMD ["python", "src/app.py"]
