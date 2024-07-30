@@ -42,9 +42,9 @@ jobs:
 
     - name: Run tests
       run: |
-        docker-compose up -d
+        docker-compose up 
         sleep 10  # Ensure services are up and running
-        docker-compose exec app python -m unittest discover src/tests
+        docker-compose exec -T app python -m unittest discover src/tests
         docker-compose down
 
     - name: Build Docker image
