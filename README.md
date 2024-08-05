@@ -140,7 +140,7 @@ docker-compose up
 
 ### Example Usage
 
-![User Interface with Output]<img width="1440" alt="Screenshot 2024-08-05 at 4 43 12 PM" src="https://github.com/user-attachments/assets/214e9b5b-1956-4a4f-ba01-078c852fc79e">
+<img width="1440" alt="Screenshot 2024-08-05 at 4 43 12 PM" src="https://github.com/user-attachments/assets/214e9b5b-1956-4a4f-ba01-078c852fc79e">
 
 
 
