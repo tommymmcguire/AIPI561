@@ -104,6 +104,11 @@ docker run -p 5001:5001 your-docker-username/my-chatbot:latest
 docker-compose up --build
 ```
 
+Once the container is built, you can subsequently run the application with:
+```sh
+docker-compose up
+```
+
 ### Makefile Commands
 1. Install Dependencies
    ```sh
