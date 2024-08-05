@@ -8,6 +8,8 @@
 
 This project is a Llamafile application that utilizes `llama.cpp` and `Cosmopolitan` to wrap a Large Language Model (LLM) into a single executable file, exposing a local API endpoint. The application includes a frontend interface to interact with the model endpoint and is packaged in a container for portability.
 
+### Walk Through [Youtube Video]
+
 ## Features
 
 - **LLM Integration:** Incorporates a language model using `llama.cpp`.
