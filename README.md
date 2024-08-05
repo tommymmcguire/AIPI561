@@ -64,22 +64,7 @@ This project is a Llamafile application that utilizes `llama.cpp` and `Cosmopoli
 2. **Build the Llamafile:**
     - Follow the instructions in the [llamafile repository](https://github.com/Mozilla-Ocho/llamafile) to build the Llamafile executable with your model weights in `.gguf` format.
     - You can also download pre-included Llamafiles from the repository.
-
-3. **Build and Run the Docker Container:**
-
-    **Using Docker:**
-
-    ```sh
-    docker build -t tommymmcguire22/my-chatbot:latest .
-    docker run -p 5001:5001 tommymmcguire22/my-chatbot:latest
-    ```
-
-    **Using Docker Compose:**
-
-    ```sh
-    docker-compose up --build
-    ```
-
+  
 ### GitHub Secrets Configuration
 
 Before building and running the Docker container, make sure to add your Docker username and password to GitHub Secrets:
@@ -113,6 +98,30 @@ docker build -t your-docker-username/my-chatbot:latest .
 docker run -p 5001:5001 your-docker-username/my-chatbot:latest
 ```
 
+**Using Docker Compose:**
+
+    ```sh
+    docker-compose up --build
+    ```
+
+### Makefile Commands
+1. Install Dependencies
+   ```sh
+    make install
+    ```
+2. Lint Code
+   ```sh
+    make lint
+    ```
+3. Run Tests
+   ```sh
+    make test
+    ```
+4. Run the Application:
+   ```sh
+    make run
+    ```
+
 ### Usage
 
 1. **Access the Frontend Interface:**
@@ -120,40 +129,6 @@ docker run -p 5001:5001 your-docker-username/my-chatbot:latest
 
 2. **Interact with the Model:**
     Use the frontend interface to send queries to the model and receive responses.
-
-### Running the Application
-
-To run the application, follow these steps:
-
-1. **Clone the Repository:**
-    ```sh
-    git clone https://github.com/tommymmcguire/AIPI561.git
-    cd AIPI561
-    ```
-
-2. **Build the Docker Container:**
-    ```sh
-    docker build -t tommymmcguire22/my-chatbot:latest .
-    ```
-
-3. **Run the Docker Container:**
-    ```sh
-    docker run -p 5001:5001 tommymmcguire22/my-chatbot:latest
-    ```
-
-4. **Using Docker Compose:**
-    If you prefer to use Docker Compose, you can start the application with:
-    ```sh
-    docker-compose up --build
-    ```
-
-    Once the container is built, you can subsequently run the application with:
-    ```sh
-    docker-compose up
-    ```
-
-5. **Access the Application:**
-    Open your web browser and navigate to `http://localhost:5001` to access the frontend interface and start interacting with the chatbot.
 
 ## Model Selection
 
