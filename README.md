@@ -80,6 +80,39 @@ This project is a Llamafile application that utilizes `llama.cpp` and `Cosmopoli
     docker-compose up --build
     ```
 
+### GitHub Secrets Configuration
+
+Before building and running the Docker container, make sure to add your Docker username and password to GitHub Secrets:
+
+1. Navigate to your GitHub repository.
+2. Go to `Settings` > `Secrets` > `New repository secret`.
+3. Add the following secrets:
+   - `DOCKER_USERNAME`: Your Docker Hub username.
+   - `DOCKER_PASSWORD`: Your Docker Hub password.
+
+### Modify Docker Commands
+
+Replace `tommymmcguire22` with your Docker Hub username in the following commands:
+
+3. **Build the Docker Container:**
+    ```sh
+    docker build -t your-docker-username/my-chatbot:latest .
+    ```
+
+4. **Run the Docker Container:**
+    ```sh
+    docker run -p 5001:5001 your-docker-username/my-chatbot:latest
+    ```
+
+### Build and Run the Docker Container
+
+**Using Docker:**
+
+```sh
+docker build -t your-docker-username/my-chatbot:latest .
+docker run -p 5001:5001 your-docker-username/my-chatbot:latest
+```
+
 ### Usage
 
 1. **Access the Frontend Interface:**
