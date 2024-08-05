@@ -65,6 +65,9 @@ This project is a Llamafile application that utilizes `llama.cpp` and `Cosmopoli
     - Follow the instructions in the [llamafile repository](https://github.com/Mozilla-Ocho/llamafile) to build the Llamafile executable with your model weights in `.gguf` format.
     - You can also download pre-included Llamafiles from the repository.
   
+3. **Run the Llamafile locally:**
+    - Follow the instructions in the [llamafile repository](https://github.com/Mozilla-Ocho/llamafile) to run the Llamafile locally.
+  
 ### GitHub Secrets Configuration
 
 Before building and running the Docker container, make sure to add your Docker username and password to GitHub Secrets:
