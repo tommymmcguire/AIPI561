@@ -208,7 +208,7 @@ For this application, we selected the TinyLlama model for the following reasons:
 
 ## Project Structure
 
-- `.github/workflows/ci.yml`: GitHub Actions configuration for Continuous Integration.
+- `.github/workflows/ci.yml`: GitHub Actions configuration for Continuous Integration/Continuous Deployment.
 - `src/frontend/static/style.css`: CSS file for styling the frontend.
 - `src/frontend/templates/index.html`: HTML template for the frontend.
 - `src/tests/test_app.py`: Unit tests for the application.
