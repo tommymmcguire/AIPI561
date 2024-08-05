@@ -18,7 +18,8 @@ This project is a Llamafile application that utilizes `llama.cpp` and `Cosmopoli
 
 ## Architecture
 
-![Architecture Diagram](docs/images/architecture.png)
+![Architecture Diagram](https://github.com/user-attachments/assets/f86f591d-d040-4c5d-8986-f982165d9a05)
+
 
 ### Architecture Description
 
