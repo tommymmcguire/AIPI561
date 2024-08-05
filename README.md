@@ -138,6 +138,11 @@ docker-compose up
 2. **Interact with the Model:**
     Use the frontend interface to send queries to the model and receive responses.
 
+### Example Usage
+
+![User Interface with Output](<img width="1440" alt="Screenshot 2024-08-05 at 4 43 12 PM" src="https://github.com/user-attachments/assets/8d03ab1f-f9b9-454e-9855-e90466e8a60b">)
+
+
 ## Model Selection
 
 ### Model Used: TinyLlama
