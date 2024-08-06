@@ -1,6 +1,6 @@
 # Entrepreneurial Chatbot Assistant
 
-[![Build Status](https://github.com/tommymmcguire/AIPI561/actions/workflows/ci.yml/badge.svg)](https://github.com/tommymmcguire/AIPI561/actions)
+[![Build Status](https://github.com/tommymmcguire/AIPI561/actions/workflows/cicd.yml/badge.svg)](https://github.com/tommymmcguire/AIPI561/actions)
 
 ---
 
