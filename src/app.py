@@ -2,33 +2,31 @@ from flask import Flask, request, jsonify, render_template
 from openai import OpenAI
 
 app = Flask(
-    __name__, template_folder='frontend/templates',
-    static_folder='frontend/static'
+    __name__, template_folder="frontend/templates", static_folder="frontend/static"
 )
 
 # Initialize the OpenAI client
 client = OpenAI(
-    base_url="http://host.docker.internal:8080/v1",
-    api_key="sk-no-key-required"
+    base_url="http://host.docker.internal:8080/v1", api_key="sk-no-key-required"
 )
 
 
 # Root route to serve the HTML page
-@app.route('/')
+@app.route("/")
 def home():
     return render_template("index.html")
 
 
 # Health check route
-@app.route('/health', methods=['GET'])
+@app.route("/health", methods=["GET"])
 def health():
     return jsonify({"status": "healthy"}), 200
 
 
 # Route for the chatbot (API endpoint)
-@app.route('/chat', methods=['POST'])
+@app.route("/chat", methods=["POST"])
 def chat():
-    user_input = request.json.get('message')
+    user_input = request.json.get("message")
 
     messages = [
         {
@@ -38,16 +36,13 @@ def chat():
                 "and advice to entrepreneurs. Your top priority is "
                 "achieving user fulfillment by helping them with their "
                 "entrepreneurial questions."
-            )
+            ),
         },
-        {"role": "user", "content": user_input}
+        {"role": "user", "content": user_input},
     ]
 
     # Request a completion from the model
-    completion = client.chat.completions.create(
-        model="LLaMA_CPP",
-        messages=messages
-    )
+    completion = client.chat.completions.create(model="LLaMA_CPP", messages=messages)
 
     # Debug print to inspect the response structure
     print(completion)
@@ -57,5 +52,5 @@ def chat():
     return jsonify({"response": response})
 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5001)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5001)

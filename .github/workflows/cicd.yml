@@ -26,6 +26,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Format code
+          run: |
+            pip install black
+            black src
+            
     - name: Lint code
       run: |
         pip install flake8

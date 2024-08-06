@@ -1,6 +1,6 @@
 # Default target
 .PHONY: all
-all: install lint test run
+all: install lint format test run
 
 # Install Python dependencies
 .PHONY: install
@@ -13,6 +13,11 @@ install:
 lint:
 	pip install flake8
 	flake8 src
+
+# Format Python files
+.PHONY: format
+format:
+	black src
 
 # Run tests
 .PHONY: test
