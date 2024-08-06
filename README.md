@@ -123,11 +123,15 @@ docker-compose up
    ```sh
     make lint
     ```
-3. Run Tests
+3. Format Code
+   ```sh
+    make format
+    ```
+4. Run Tests
    ```sh
     make test
     ```
-4. Run the Application:
+5. Run the Application:
    ```sh
     make run
     ```
